@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание бренда — AMORPHO</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header__inner">
+        <a href="index.html" class="logo">AMORPHO</a>
+
+        <nav class="nav">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О бренде</a>
+            <a href="create-brand.html" class="active">Создание бренда</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </div>
+</header>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Конструктор бренда</h1>
+        <p>
+            Создай концепцию собственного бренда одежды,
+            выбрав основные параметры будущей коллекции.
+        </p>
+    </div>
+</section>
+
+<section class="constructor">
+    <div class="container constructor__inner">
+
+        <div class="constructor__form">
+
+            <h2>Параметры бренда</h2>
+
+            <label>Название бренда</label>
+            <input type="text" id="brandName" placeholder="Например: AMORPHO">
+
+            <label>Стиль бренда</label>
+            <select id="brandStyle">
+                <option>Streetwear</option>
+                <option>Oversize</option>
+                <option>Luxury</option>
+                <option>Sport</option>
+            </select>
+
+            <label>Основной цвет</label>
+            <select id="brandColor">
+                <option>Черный</option>
+                <option>Белый</option>
+                <option>Серый</option>
+                <option>Красный</option>
+            </select>
+
+            <button class="btn" onclick="createBrand()">
+                Создать концепцию
+            </button>
+
+        </div>
+
+        <div class="constructor__result" id="brandResult">
+
+            <h2>AMORPHO</h2>
+
+            <p>
+                Заполните параметры бренда и нажмите кнопку
+                «Создать концепцию».
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 AMORPHO. Сайт по созданию бренда одежды.</p>
+    </div>
+</footer>
+
+<script>
+function createBrand() {
+
+    let name = document.getElementById("brandName").value;
+    let style = document.getElementById("brandStyle").value;
+    let color = document.getElementById("brandColor").value;
+
+    if(name === "") {
+        name = "AMORPHO";
+    }
+
+    document.getElementById("brandResult").innerHTML = `
+        <h2>${name}</h2>
+
+        <p><strong>Стиль:</strong> ${style}</p>
+
+        <p><strong>Основной цвет:</strong> ${color}</p>
+
+        <p>
+            Концепция бренда ориентирована на современную молодежную аудиторию.
+            Основой фирменного стиля выступает направление ${style},
+            а главным цветовым акцентом является ${color.toLowerCase()} цвет.
+        </p>
+
+        <p>
+            Бренд ${name} сочетает минимализм, современные тенденции
+            и узнаваемую визуальную айдентику.
+        </p>
+    `;
+}
+</script>
+
+</body>
+</html>
